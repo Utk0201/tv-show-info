@@ -7,7 +7,7 @@ form.addEventListener('submit',async function(e){
     if(last){
         let allC=document.body.children;
         console.dir(allC);
-        for(let i=0;i<6;i++){
+        for(let i=0;i<=6;i++){
             try{
                 allC[3].remove();
             }
