@@ -18,7 +18,7 @@ form.addEventListener('submit',async function(e){
     }
     let txt=form.elements.query.value;
     if(txt){
-    let config={params:{q:txt,rat:'three'}};
+    let config={params:{q:txt}};
     const res= await axios.get(`http://api.tvmaze.com/singlesearch/shows`,config);
     makeImages(res);
     form.elements.query.value='';
