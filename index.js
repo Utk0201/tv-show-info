@@ -7,7 +7,7 @@ form.addEventListener('submit',async function(e){
     if(last){
         let allC=document.body.children;
         console.dir(allC);
-        for(let i=0;i<6;i++){
+        for(let i=0;i<=6;i++){
             try{
                 allC[3].remove();
             }
@@ -18,7 +18,7 @@ form.addEventListener('submit',async function(e){
     }
     let txt=form.elements.query.value;
     if(txt){
-    let config={params:{q:txt,rat:'three'}};
+    let config={params:{q:txt}};
     const res= await axios.get(`http://api.tvmaze.com/singlesearch/shows`,config);
     makeImages(res);
     form.elements.query.value='';
