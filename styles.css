@@ -1,0 +1,44 @@
+body {
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+h3 {
+    font-size: 2rem;
+    color: darkcyan;
+}
+
+img{
+
+}
+
+p {
+    font-size: 1.5rem;
+    color: darkcyan;
+    font-family: cursive;
+    margin: 0;
+    padding: 1rem;
+}
+
+#basic-info {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    align-items: center;
+}
+
+#details {
+    background: floralwhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    border-color: darkcyan;
+    border-width: 1rem 0rem 0rem 1rem;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    border-bottom-left-radius: 60px;
+}
