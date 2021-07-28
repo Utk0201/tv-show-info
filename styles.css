@@ -5,6 +5,56 @@ body {
     align-items: center;
 }
 
+::selection {
+    color:cornflowerblue;
+    background: none;
+}
+
+input {
+    border: none;
+    height: 3rem;
+    width: 30rem;
+    text-align: center;
+    border-radius: 20px;
+    font-family: cursive;
+    font-size: 1.6rem;
+    background: lightcyan;
+}
+
+input:focus{
+    outline: none;
+}
+
+#tvShow {
+    display: flex;
+    flex-direction: column;
+    height: 8rem;
+    justify-content: space-around;
+}
+
+button {
+    width: 6em;
+    align-self: center;
+    height: 3rem;
+    border: none;
+    border-radius: 60px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    background: darkcyan;
+}
+
+button:hover{
+    color: white;
+}
+
+.app-heading {
+    font-family: fantasy;
+    font-size: 5rem;
+    color: darkcyan;
+    font-family: sans-serif;
+    font-style: oblique;
+    font-variant: small-caps;
+}
 
 h3 {
     font-size: 2rem;
@@ -13,6 +63,15 @@ h3 {
 
 img{
 
+}
+
+h2{
+
+}
+
+#heading {
+    font-family: monospace;
+    font-size: 3rem;
 }
 
 p {
@@ -26,7 +85,7 @@ p {
 #basic-info {
     display: flex;
     flex-direction: column;
-    width: 20rem;
+    width: 50rem;
     align-items: center;
 }
 

@@ -1,12 +1,13 @@
 $(document).ready(function () {
-    let ip = document.querySelector('#showName');
     let form = document.querySelector('#tvShow');
     $("#details").hide();
+    $("#basic-info").hide();
     let container = $("#details")[0];
+    let infoContainer = $("#basic-info")[0];
 
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
-        console.log(document.childNodes);
+        // console.log(document.childNodes);
         let last = document.body.querySelector('img');
         if (last) {
             let allC = document.body.children;
@@ -22,17 +23,25 @@ $(document).ready(function () {
             document.body.appendChild(newDetails);
             $("#details").hide();
             container = $("#details")[0];
+            $("#basic-info").hide();
+            infoContainer = $("#basic-info")[0];
         }
         let txt = form.elements.query.value;
         if (txt) {
             let config = { params: { q: txt } };
             const res = await axios.get(`http://api.tvmaze.com/singlesearch/shows`, config);
+            let showName = document.createElement('h1');
+            showName.setAttribute("id","heading");
+            showName.innerText=`${res.data.name}`;
+            infoContainer.appendChild(showName);
+            console.log(res.data.name);
             makeImages(res);
             form.elements.query.value = '';
         }
         else {
-            console.log('type something');
+            // console.log('type something');
         }
+        $("#basic-info").show("fast");
         $("#details").show("slow");
     })
 
@@ -40,13 +49,14 @@ $(document).ready(function () {
         // console.dir(res.data.genres);
         let basicInfo = document.getElementById("basic-info");
         let newImg = document.createElement('img');
+        newImg.setAttribute("alt","Image not available for this show");
         if (res.data.image) {
             let imgUrl = res.data.image.medium;
             newImg.src = imgUrl;
             basicInfo.appendChild(newImg);
-            console.log('image inserted');
+            // console.log('image inserted');
             //insert genres
-            let ar = res.data.genres;
+            let ar =res.data.genres;
             insertH2(ar);
             //insert genres
 
@@ -58,36 +68,35 @@ $(document).ready(function () {
             let tmz = res.data.network.country.timezone;
             let smr = res.data.summary;
             // console.dir(res.data.summary);
-            // console.log(tmz);
+            console.log(tmz);
             insertScd(days, time, ctr, tmz, smr);
             //insert schedule
-
         }
         else {
-            console.log('no result found');
+            // console.log('no result found');
         }
     }
 
     function insertH2(ar) {
         // console.dir(ar);
         let basicInfo = document.getElementById("basic-info");
-        let s = '';
+        let s = 'Genres : ';
         for (let i = 0; i < ar.length; i++) {
-            if (s.length) {
-                s = s + ',' + ar[i];
+            if(i==ar.length-1){
+                s=s+','+ar[i];
             }
-            else {
-                s = ar[i];
+            else{
+                s+=ar[i];
             }
         }
-        // console.log(s);
+        console.log(s);
         let h2 = document.createElement('h2');
         h2.innerHTML = `${s}`;
         basicInfo.appendChild(h2);
     }
 
     function insertScd(days, time, ctr, tmz, smr) {
-        console.log(container);
+        // console.log(container);
         let dh3 = document.createElement('h3');
         let th3 = document.createElement('h3');
         let ch3 = document.createElement('h3');
