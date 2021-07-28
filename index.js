@@ -83,10 +83,10 @@ $(document).ready(function () {
         let s = 'Genres : ';
         for (let i = 0; i < ar.length; i++) {
             if(i==ar.length-1){
-                s=s+','+ar[i];
+                s=s+ar[i];
             }
             else{
-                s+=ar[i];
+                s+=ar[i]+',';
             }
         }
         console.log(s);
