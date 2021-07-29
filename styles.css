@@ -98,7 +98,5 @@ p {
     border-style: solid;
     border-color: darkcyan;
     border-width: 1rem 0rem 0rem 1rem;
-    border-top-left-radius: 60px;
-    border-top-right-radius: 60px;
-    border-bottom-left-radius: 60px;
+    border-radius: 60px;
 }
